@@ -1,0 +1,12 @@
+1. Open the terminal in the corresponding directory and install the requirements for the project
+using pip. (Python3 is a prerequisite for the project). The following command shall do the job.
+
+	python3 -m pip install -r requirements.txt
+
+2. Run the server using django-admin using the following command.
+
+	python3 manage.py runserver
+
+3. Django server will start running on your localhost at port 8000. Reach for the web portal from:
+
+	Localhost: http://127.0.0.1:8000/
