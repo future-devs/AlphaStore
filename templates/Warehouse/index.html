@@ -1,0 +1,423 @@
+{% load static %}
+<!DOCTYPE html>
+<!--
+This is a repository under Future Devs. An open-source organization on Github.
+The website's backend is hosted on heroku. Uses python over gunicorn server environment with Django. 
+Database management resource tool is made using HTML, CSS and Javascript, along with bootstrap and axios framework. 
+-->
+<html>
+	<head>
+		<title>Logistics Manager</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+		<meta content="utf-8" http-equiv="encoding" />
+
+		<!-- Jquery Included -->
+		<script
+			type="text/javascript"
+			src="{% static 'Warehouse/jquery/jquery.min.js' %}"
+		></script>
+
+		<!-- Bootstrap Included -->
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="{% static 'Warehouse/bootstrap/css/bootstrap.min.css' %}"
+		/>
+		<script
+			type="text/javascript"
+			src="{% static 'Warehouse/bootstrap/js/bootstrap.min.js' %}"
+		></script>
+
+		<!-- Axios Included -->
+		<script
+			type="text/javascript"
+			src="{% static 'Warehouse/axios/axios.min.js' %}"
+		></script>
+
+		<!-- Personalized CSS -->
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="{% static 'Warehouse/css/template.css' %}"
+		/>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="{% static 'Warehouse/css/index.css' %}"
+		/>
+
+		<!-- Personalized JS -->
+		<script
+			type="text/javascript"
+			src="{% static 'Warehouse/js/template.js' %}"
+		></script>
+		<script
+			type="text/javascript"
+			src="{% static 'Warehouse/js/index.js' %}"
+		></script>
+	</head>
+
+	<body class="body">
+		<div class="modal fade" id="main-modal">
+			<div class="modal-dialog modal-dialog-centered modal-lg">
+				<div class="modal-content">
+					<!-- Modal Header -->
+					<div class="modal-header" id="modal-header">
+						<h4 class="modal-title" id="modal-title">Modal Heading</h4>
+
+						<button type="button" class="close" data-dismiss="modal">
+							&times;
+						</button>
+					</div>
+
+					<!-- Modal body -->
+					<div class="modal-body" id="modal-body">Body</div>
+
+					<!-- Modal footer -->
+					<div class="modal-footer" id="modal-footer">
+						Footer
+						<!-- <button type="button" class="btn btn-danger" data-dismiss="modal">
+							Close
+						</button> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- <button
+			type="button"
+			class="btn btn-primary"
+			data-toggle="modal"
+			data-target="#main-modal"
+			onclick=""
+		>
+			Open modal
+		</button> -->
+
+		<div class="row heading-div">
+			<div class="col-sm-12">
+				<div class="row center">
+					<div class="col-sm-6 brand">Alpha Store</div>
+				</div>
+				<div class="row center">
+					<div class="col-sm-6 brand-sub">Logistics Management</div>
+				</div>
+			</div>
+		</div>
+		<div class="row switch-selection">
+			<div class="col-sm-12">
+				<div class="row center">
+					<a
+						class="col-sm-6 active"
+						id="product-section-switch"
+						onclick="displayProductSection()"
+					>
+						Products Section
+					</a>
+
+					<a
+						class="col-sm-6"
+						id="details-section-switch"
+						onclick="displayDetailsSection()"
+					>
+						Other Details
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="row display-section" id="product-section">
+			<div class="col-sm-12">
+				<div class="row">
+					<div class="col-sm-12" id="product-section-div">
+						<div class="row white-box center">
+							<button
+								type="button"
+								class="btn"
+								id="addProductBtn"
+								data-toggle="modal"
+								data-target="#main-modal"
+								onclick="openAddProductDialog()"
+							>
+								Add New Product
+							</button>
+						</div>
+
+						<div class="row white-box">
+							<div class="col-sm-1 Pid table-elem">Product Id</div>
+							<div class="col-sm-1 Name table-elem">Name</div>
+
+							<div class="col Category table-elem">Category</div>
+							<div class="col-sm-2 Images table-elem">Images</div>
+							<div class="col-sm-2 Specifications highlight2 table-elem">
+								Specifications
+							</div>
+
+							<div class="col-sm-1 Tags table-elem">Tags</div>
+							<div class="col Availability table-elem">Availability</div>
+							<div class="col Price table-elem">Price</div>
+							<div class="col Quantity table-elem">Quantity</div>
+							<div class="col success Edit table-elem">Edit</div>
+							<div class="col error Delete table-elem">Delete</div>
+						</div>
+
+						<div id="product-display"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row display-section" id="details-section">
+			<div class="col-sm-12">
+				<div class="row">
+					<div class="col-sm-12" id="details-section-div">
+						<div class="row white-box center">
+							<div class="col-sm-12">
+								<div class="row detail-elem">
+									<div class="col-sm-3">Name:</div>
+									<div class="col-sm-9">
+										<input
+											type="text"
+											class="form-control"
+											id="owner-name"
+											placeholder="Enter your name here."
+										/>
+									</div>
+								</div>
+
+								<div class="row detail-elem">
+									<div class="col-sm-3">Phone Number:</div>
+									<div class="col-sm-9">
+										<input
+											type="number"
+											class="form-control"
+											id="owner-number"
+											placeholder="Enter your phone number here."
+										/>
+									</div>
+								</div>
+
+								<div class="row detail-elem">
+									<div class="col-sm-3">Store Address:</div>
+									<div class="col-sm-9">
+										<input
+											type="text"
+											class="form-control"
+											id="owner-address"
+											placeholder="Enter your address here."
+										/>
+									</div>
+								</div>
+
+								<div class="row detail-elem">
+									<div class="col-sm-3">Email:</div>
+									<div class="col-sm-9">
+										<input
+											type="email"
+											class="form-control"
+											id="owner-email"
+											placeholder="Enter your email address here."
+										/>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-sm-3"></div>
+									<div class="col-sm-9"></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row white-box center">
+							<button class="btn" onclick="saveDetails()">Save Details</button>
+						</div>
+						<div class="row white-box center" id="save-success">
+							<span class="success">Data Saved Successfully...</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="templates">
+			<div id="open-add-product-dialog-data">
+				<div id="open-add-product-dialog-title">Add New Product</div>
+				<div id="open-add-product-dialog-body">
+					<div class="row modal-row center">
+						<span class="highlight3"
+							>Please ensure correctness of entries before submitting.</span
+						>
+					</div>
+
+					<div class="row modal-row">
+						ProductID: (-1 represents unassigned new products)
+					</div>
+					<div class="row modal-row">
+						<input type="text" id="add-pid" value="-1" readonly />
+					</div>
+					<div class="row modal-row">Enter Product Name:</div>
+					<div class="row modal-row">
+						<textarea
+							class="form-control"
+							id="add-name"
+							placeholder="Write name here..."
+						></textarea>
+					</div>
+					<div class="row modal-row">Select Category:</div>
+					<div class="row modal-row">
+						<select
+							class="form-control"
+							id="add-category"
+							placeholder="Select from mentioned"
+						>
+							<option id="Clothing" value="Clothing" selected>Clothing</option>
+							<option id="Products" value="Products">Products</option>
+							<option id="Accessories" value="Accessories">Accessories</option>
+							<option id="Other" value="Other">Other</option>
+						</select>
+					</div>
+
+					<div class="row modal-row">Enter Specifications:</div>
+					<div class="row modal-row">
+						<textarea
+							class="form-control"
+							id="add-specifications"
+							placeholder="Write specifications here. Use new line to make list points..."
+						></textarea>
+					</div>
+					<div class="row modal-row">
+						Add Images: &nbsp &nbsp
+						<button class="btn btn-primary" onclick="addNewImageInput()">
+							Add Image
+						</button>
+					</div>
+					<div class="row">
+						<div class="col-sm-12" id="imageURLs"></div>
+					</div>
+					<div class="row modal-row">Enter Tags:</div>
+					<div class="row modal-row">
+						<textarea
+							class="form-control"
+							id="add-tags"
+							placeholder="Enter Tags. Multiple tags should be seperated using comma..."
+						></textarea>
+					</div>
+					<div class="row modal-row">
+						<div class="col-sm-6">Add Price:</div>
+						<div class="col-sm-6">Add Quantity:</div>
+					</div>
+					<div class="row modal-row">
+						<div class="col-sm-6">
+							<div class="row">
+								<div class="col-sm-2">₹</div>
+								<div class="col">
+									<input
+										type="number"
+										class="form-control"
+										id="add-price"
+										placeholder="Enter the Price"
+										step="0.01"
+										min="0"
+									/>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="col">
+								<input
+									type="number"
+									class="form-control"
+									id="add-quantity"
+									placeholder="Enter the Quantity"
+									step="1"
+									min="0"
+								/>
+							</div>
+						</div>
+					</div>
+					<div class="row modal-row">Availability:</div>
+					<div class="row modal-row">
+						<div class="col-sm-6">
+							<input
+								type="radio"
+								id="available"
+								name="availability-radio"
+								value="Available"
+							/>
+							<label for="available">Available</label>
+						</div>
+						<div class="col-sm-6">
+							<input
+								type="radio"
+								id="not-available"
+								name="availability-radio"
+								value="Not Available"
+							/>
+							<label for="not-available">Not Available</label>
+						</div>
+					</div>
+				</div>
+				<div id="open-add-product-dialog-footer">
+					<button class="btn btn-success" onclick="addProduct()">Submit</button>
+				</div>
+			</div>
+
+			<div id="imageURL-template">
+				<div class="row modal-row" id="imageURLDiv">
+					<div class="col">
+						<input
+							type="text"
+							class="form-control imageURL"
+							id="imageURL"
+							onchange="updateInput(this,this.value)"
+							value="{value}"
+						/>
+					</div>
+					<div class="col-auto center">
+						<button
+							type="button"
+							class="close"
+							onclick="removeThisInput(this.parentNode.parentNode)"
+						>
+							&times;
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<div id="product-display-template">
+				<div class="row Varela white-box">
+					<div class="col-sm-1 table-elem" id="ProductID">{ProductID}</div>
+					<div class="col-sm-1 table-elem" id="Name">{Name}</div>
+					<div class="col table-elem" id="Category">{Category}</div>
+					<div class="col-sm-2 table-elem" id="Images">{ImageURLs}</div>
+					<div class="col-sm-2 base2 table-elem" id="Specifications">
+						{Specifications}
+					</div>
+					<div class="col-sm-1 table-elem" id="Tags">{Tags}</div>
+					<div class="col table-elem" id="Availability">{Availability}</div>
+					<div class="col table-elem" id="Price">{Price}</div>
+					<div class="col table-elem" id="Quantity">{Quantity}</div>
+					<div class="col success Edit table-elem">
+						<button
+							class="btn btn-success"
+							onclick="editProduct(this,'{ProductID}')"
+						>
+							Edit
+						</button>
+					</div>
+					<div class="col error Delete table-elem">
+						<button
+							class="btn btn-danger"
+							onclick="deleteProduct(this,'{ProductID}')"
+						>
+							Delete
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		initialize();
+	</script>
+</html>
