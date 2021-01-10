@@ -42,3 +42,71 @@ def increasePid():
     pid['NextProductID'] += 1
     query = SiteData.update_one({'Data': 'NextProductID'}, {
                                 '$set': pid}, upsert=True)
+
+
+@csrf_exempt
+def addProduct(request):
+    jsonData = json.loads(request.body)
+    pid = jsonData['PID']
+    queryObj = {
+        'ProductID': pid,
+        'Name': jsonData['Name'],
+        'Category': jsonData['Category'],
+        'Specifications': jsonData['Specifications'],
+        'ImageURLs': jsonData['Images'],
+        'Tags': jsonData['Tags'],
+        'Price': float(jsonData['Price']),
+        'Quantity': int(jsonData['Quantity']),
+        'Availability': jsonData['Availability']
+    }
+    query = Products.update_one(
+        {'ProductID': pid}, {'$set': queryObj}, upsert=True)
+
+    output = {'result': 'Added'}
+    increasePid()
+    return JsonResponse(output)
+
+
+@csrf_exempt
+def deleteProduct(request):
+    jsonData = json.loads(request.body)
+    pid = jsonData['PID']
+    queryObj = {'ProductID': pid}
+    query = Products.delete_one(queryObj)
+    return JsonResponse({'result': 'Data Deleted...'})
+
+
+@csrf_exempt
+def saveDetails(request):
+    jsonData = json.loads(request.body)
+    queryObj = {
+        'Data': 'Details',
+        'Details': {'Name': jsonData['Name'],
+                    'Address': jsonData['Address'],
+                    'PhoneNumber': jsonData['PhoneNumber'],
+                    'Email': jsonData['Email']
+                    }
+    }
+    query = SiteData.update_one(
+        {'Data': 'Details'}, {'$set': queryObj}, upsert=True)
+    return JsonResponse({'result': 'Saved Successfully'})
+
+
+def getDetails(request):
+    query = SiteData.find_one({'Data': 'Details'})
+    query = query['Details']
+    output = {}
+
+    output['Name'] = query['Name']
+    output['Address'] = query['Address']
+    output['Email'] = query['Email']
+    output['PhoneNumber'] = query['PhoneNumber']
+    return JsonResponse({'result': output})
+
+
+def warehouseHome(request):
+    return render(request, "Warehouse/index.html")
+
+
+def warehouseTest(request):
+    return HttpResponse("Hello Warehouse Here.")
