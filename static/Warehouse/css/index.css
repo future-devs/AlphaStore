@@ -1,0 +1,139 @@
+.body {
+	color: var(--darkcolor);
+}
+
+.btn-primary {
+	background-color: var(--color3);
+	border-color: var(--color2);
+}
+
+.btn-primary:hover,
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:focus {
+	background-color: var(--color2);
+	border-color: var(--color2);
+}
+
+.heading-div {
+	height: 100%;
+	padding: 10px;
+}
+
+.brand {
+	font-size: 80px;
+	color: var(--lightcolor);
+	font-family: Comfortaa;
+}
+.brand-sub {
+	font-size: 20px;
+	padding-bottom: 10px;
+	color: var(--color3);
+	font-family: Comfortaa;
+}
+
+#product-section-switch {
+	padding: 8px;
+	background-color: var(--color1);
+	font-family: Varela;
+	color: var(--color3);
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+#details-section-switch {
+	padding: 8px;
+	background-color: var(--color1);
+	color: var(--color3);
+	font-family: Varela;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.active {
+	box-shadow: inset 0px 0px 2px 2px var(--color3);
+}
+
+@media screen and (max-width: 700px) {
+	.brand {
+		font-size: 35px;
+		padding: 5px;
+	}
+	.brand-sub {
+		font-size: 15px;
+		padding-bottom: 5px;
+	}
+	#product-section-switch {
+		width: 45vw;
+		font-size: 15px;
+		border-top-left-radius: 5px;
+		border-bottom-left-radius: 5px;
+	}
+	#details-section-switch {
+		font-size: 15px;
+		width: 45vw;
+		border-top-right-radius: 5px;
+		border-bottom-right-radius: 5px;
+	}
+}
+
+.display-section {
+	margin: 16px;
+	border-radius: 10px;
+	padding: 15px 5px 15px 5px;
+}
+
+#product-section {
+	font-family: Varela;
+}
+
+#details-section {
+	font-family: Varela;
+}
+
+#details-section-div {
+	font-family: Varela;
+	color: var(--color4);
+}
+
+.white-box {
+	background-color: var(--lightcolor);
+	padding: 10px;
+	border-radius: 10px;
+	margin-top: 10px;
+}
+
+.table-elem {
+	border-left: 1px solid var(--darkgray);
+	border-right: 1px solid var(--darkgray);
+	text-align: center;
+	word-wrap: break-word;
+}
+.detail-elem {
+	margin-top: 10px;
+	padding: 10px;
+}
+
+#open-add-product-dialog-data {
+	display: none;
+}
+
+.templates {
+	display: none;
+}
+
+.modal-row {
+	margin: 10px 0px 10px 0px;
+}
+#main-modal {
+	font-family: Varela;
+	color: var(--color4);
+}
+#modal-header {
+}
+#modal-title {
+}
+#modal-body {
+	line-height: 40px;
+}
+#modal-footer {
+}
