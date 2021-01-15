@@ -170,7 +170,7 @@ def signupRequest(request):
             }
         else:
             query = Users.insert_one(
-                {'Username': username, "Useremail": useremail, "Password": password, "Cart": {}, "Orders": []})
+                {'Username': username, "Useremail": useremail, "Password": password, "Cart": {}})
             output = {
                 'message': "User Registered Successfully"
             }
