@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<!--
+This is a repository under Future Devs. An open-source organization on Github.
+The website's backend is hosted on heroku. Uses python over gunicorn server environment with Django.    
+Database management resource tool is made using HTML, CSS and Javascript, along with bootstrap and axios framework. 
+-->
+<html>
+	<head>
+		{% include 'Website/base.html'%}
+
+		<!-- Custom CSS -->
+		<link rel="stylesheet" type="text/css" href="{% static 'path/file' %}" />
+	</head>
+	<body>
+		{% include 'Website/bodyDefault.html'%}
+		<div id="header-section">{% include 'Website/header.html'%}</div>
+		{% include 'Website/templates.html'%} {% include 'Website/footer.html'%}
+	</body>
+	<!-- Custom JS -->
+	<script type="text/javascript" src="{% static 'path/file' %}"></script>
+	<script>
+		initialize();
+	</script>
+</html>

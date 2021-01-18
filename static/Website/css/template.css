@@ -1,0 +1,393 @@
+html {
+	scroll-behavior: smooth;
+}
+body {
+	font-family: Varela;
+	margin: 0px;
+	padding: 0px;
+}
+section {
+	width: 100vw;
+}
+
+:root {
+	--color1: #30475e;
+	--color2: #f2a365;
+	--color3: #ffbd69;
+	--color4: #e16428;
+	--lightcolor: #ececec;
+	--darkcolor: #182121;
+	--background: #222831;
+	--success: #70a050;
+	--error: #ed4337;
+}
+
+.body {
+	background-color: var(--lightcolor);
+}
+
+.error {
+	color: #ed4337;
+}
+.success {
+	color: #70a050;
+}
+
+.red {
+	border: 2px red solid;
+}
+.blue {
+	border: 2px blue solid;
+}
+.green {
+	border: 2px green solid;
+}
+.black {
+	border: 2px black solid;
+}
+
+.highlight1 {
+	color: var(--color2);
+}
+.highlight2 {
+	color: var(--color4);
+}
+.highlight3 {
+	color: var(--darkcolor);
+}
+
+.base1 {
+	color: var(--color3);
+}
+.base2 {
+	color: var(--color2);
+}
+.base3 {
+	color: var(--lightcolor);
+}
+
+.back1 {
+	background-color: var(--color2);
+}
+.back2 {
+	background-color: var(--color4);
+}
+.back3 {
+	background-color: var(--darkcolor);
+}
+.back4 {
+	background-color: var(--background);
+}
+
+.center {
+	margin: 0 auto;
+	text-align: center;
+	justify-content: center;
+}
+.vertical-center {
+	margin: 0;
+	position: relative;
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+.btn-success {
+	background-color: var(--success);
+}
+
+@font-face {
+	font-family: BebasNeue;
+	src: url('fonts/BebasNeue-Regular.ttf');
+}
+.font1 {
+	font-family: BebasNeue;
+}
+
+@font-face {
+	font-family: Comfortaa;
+	src: url('fonts/Comfortaa-Medium.ttf');
+}
+.font2 {
+	font-family: Comfortaa;
+}
+
+@font-face {
+	font-family: Ubuntu;
+	src: url('fonts/UbuntuCondensed-Regular.ttf');
+}
+.font3 {
+	font-family: Ubuntu;
+}
+
+@font-face {
+	font-family: Varela;
+	src: url('fonts/VarelaRound-Regular.ttf');
+}
+.font4 {
+	font-family: Varela;
+}
+
+@font-face {
+	font-family: DancingScript;
+	src: url('fonts/DancingScript-Bold.ttf');
+}
+.font5 {
+	font-family: DancingScript;
+}
+@font-face {
+	font-family: SourceSans;
+	src: url('fonts/SourceSansPro-Italic.ttf');
+}
+.font6 {
+	font-family: SourceSans;
+}
+
+.row {
+	padding: 5px 0px;
+}
+.header {
+	padding-top: 20px;
+	background-color: var(--darkcolor);
+	box-shadow: 0 0 10px 5px var(--darkcolor);
+	color: var(--lightcolor);
+}
+.footer {
+	padding: 20px 0;
+	background-color: var(--darkcolor);
+	box-shadow: 0 0 10px 5px var(--darkcolor);
+	color: var(--lightcolor);
+}
+
+.searchbar {
+	margin-bottom: auto;
+	margin-top: auto;
+	height: 50px;
+	position: absolute;
+	right: 0px;
+	background-color: #353b48;
+	border-radius: 25px;
+	padding: 10px;
+}
+
+.search_input {
+	color: white;
+	border: 0;
+	outline: 0;
+	background: none;
+	width: 0;
+	caret-color: transparent;
+	line-height: 30px;
+	transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_input {
+	padding: 0 10px;
+	width: 600px;
+	caret-color: var(--color3);
+	transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_icon {
+	background: white;
+	color: var(--color3);
+}
+
+.search_icon {
+	height: 30px;
+	width: 30px;
+	float: right;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	color: white;
+	text-decoration: none;
+}
+
+.btn-primary {
+	width: 200px;
+	background-color: var(--color3);
+	border-color: var(--color2);
+}
+
+.btn-primary:hover,
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:focus {
+	background-color: var(--color2);
+	border-color: var(--color2);
+	cursor: pointer;
+}
+
+.btn-circle {
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+}
+
+.btn-view-more {
+	font-size: 80px;
+	color: var(--lightcolor);
+}
+
+.brand h1 {
+	font-family: DancingScript;
+	font-size: 40px;
+	background: -webkit-linear-gradient(var(--color3), var(--lightcolor));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+.nav-item {
+	margin: 0 50px;
+	font-size: 16px;
+}
+a {
+	color: var(--lightcolor);
+}
+a:hover {
+	color: var(--color2);
+}
+
+#slider {
+	position: relative;
+	height: auto;
+}
+#slider-heading {
+	margin-top: 50px;
+	font-family: Comfortaa;
+	letter-spacing: 5px;
+	font-size: 18px;
+	color: var(--darkcolor);
+	opacity: 0.7;
+	text-transform: uppercase;
+}
+/*--responsive for mobile phone--*/
+ul {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+}
+
+.container {
+	width: 100%;
+	height: auto;
+	background-color: var(--lightcolor);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-width: 100%;
+}
+.box {
+	width: 250px;
+	height: 400px;
+	background-color: var(--background);
+	border-radius: 10px;
+	box-shadow: 2px 10px 12px rgba(0, 0, 0, 0.5);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	box-sizing: border-box;
+	margin: 20px 10px;
+	overflow: hidden;
+}
+.model {
+	height: 300px;
+	max-height: 300px;
+	max-width: 100%;
+	padding: 10px;
+}
+.details {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 300px;
+}
+.details p {
+	font-family: SourceSans;
+	font-weight: bold;
+	color: var(--color2);
+	text-align: center;
+	margin-top: 10px;
+	padding: 0 50px;
+	word-wrap: break-word;
+}
+.category {
+	margin-top: 5px;
+	margin-bottom: 0px;
+	font-family: Varela;
+	color: #32323e;
+	font-weight: bold;
+	letter-spacing: 2px;
+	font-size: 20px;
+}
+.box:hover {
+	background-color: #17171d;
+	transform-style: preserve-3d;
+	transform: scale(1.02);
+	transition: all ease 0.3s;
+}
+.box:hover .category {
+	color: var(--color3);
+	transition: all ease 0.5s;
+}
+
+@media (max-width: 720px) {
+	.box {
+		width: 94%;
+		height: 500px;
+	}
+	.model {
+		height: 250px;
+	}
+	.details p {
+		font-size: 16px;
+		width: 250px;
+	}
+}
+@media (max-width: 720px) {
+	.box {
+		width: 94%;
+		height: 500px;
+	}
+	.model {
+		height: 250px;
+	}
+	.details p {
+		font-size: 16px;
+		width: 250px;
+	}
+}
+
+#templates {
+	display: none;
+}
+
+#show-modal {
+	display: none;
+}
+
+.modal-row {
+	margin: 10px 0px 10px 0px;
+}
+#main-modal {
+	font-family: Varela;
+	color: var(--color4);
+}
+#modal-header {
+}
+#modal-title {
+}
+#modal-body {
+	line-height: 40px;
+}
+#modal-footer {
+}
+.modal-open .modal {
+	z-index: 101;
+}
+.modal-backdrop {
+	z-index: 100;
+}

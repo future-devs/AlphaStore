@@ -1,0 +1,249 @@
+{% load static %}
+<!DOCTYPE html>
+<!--
+This is a repository under Future Devs. An open-source organization on Github.
+The website's backend is hosted on heroku. Uses python over gunicorn server environment with Django. 
+Database management resource tool is made using HTML, CSS and Javascript, along with bootstrap and axios framework. 
+-->
+<html>
+	<head>
+		{% include 'Website/base.html' %}
+
+		<!-- Custom CSS -->
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="{% static 'Website/css/index.css' %}"
+		/>
+	</head>
+	<body>
+		{% include 'Website/bodyDefault.html' %}
+		<div id="header-section">{% include 'Website/header.html'%}</div>
+
+		<section id="slider" class="">
+			<div class="row">
+				<div class="container">
+					<ul class="slider-elements" id="slider-elements" class="cs-hidden">
+						{%for item in sliderItems%}
+						<li class="item-a">
+							<div class="box">
+								<p class="category">{{item.Category}}</p>
+								<img src="{{item.ImageURL}}" class="model" />
+								<a href="{{item.ProductURL}}">
+									<div class="details">
+										<p>{{item.Name}}</p>
+									</div>
+								</a>
+							</div>
+						</li>
+						{%endfor%}
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<section id="banner">
+			<img
+				src="{% static 'Website/images/bg2.png' %}"
+				class="img-fluid w-100 banner"
+			/>
+		</section>
+
+		<section>
+			<div class="row">
+				<div class="col-sm-4 center category-box">
+					<div class="row">
+						<a href="category?category=Clothing" class="highlight3">
+							<span class="category-text">Clothing</span>
+						</a>
+					</div>
+				</div>
+				<div class="col-sm-8">
+					<div class="row">
+						<div class="container">
+							<ul
+								class="Clothing-elements"
+								id="Clothing-elements"
+								class="cs-hidden"
+							>
+								{% for item in clothingItems%}
+								<li class="item-a">
+									<div class="box">
+										<img src="{{item.ImageURL}}" class="model" />
+										<a href="{{item.ProductURL}}">
+											<div class="details">
+												<p>{{item.Name}}</p>
+											</div>
+										</a>
+									</div>
+								</li>
+								{%endfor%}
+								<li class="item-a">
+									<div class="box">
+										<i
+											class="fas fa-arrow-circle-right btn-view-more vertical-center"
+										></i>
+										<a href="category?category=Clothing">
+											<div class="details">
+												<p>View More</p>
+											</div>
+										</a>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<div class="row">
+				<div class="col-sm-8">
+					<div class="row">
+						<div class="container">
+							<ul
+								class="Accessories-elements"
+								id="Accessories-elements"
+								class="cs-hidden"
+							>
+								{% for item in accessoriesItems%}
+								<li class="item-a">
+									<div class="box">
+										<img src="{{item.ImageURL}}" class="model" />
+										<a href="{{item.ProductURL}}">
+											<div class="details">
+												<p>{{item.Name}}</p>
+											</div>
+										</a>
+									</div>
+								</li>
+								{%endfor%}
+								<li class="item-a">
+									<div class="box">
+										<i
+											class="fas fa-arrow-circle-right btn-view-more vertical-center"
+										></i>
+										<a href="category?category=Accessories">
+											<div class="details">
+												<p>View More</p>
+											</div>
+										</a>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4 center category-box">
+					<div class="row">
+						<a href="category?category=Accessories" class="highlight3">
+							<span class="category-text">Accessories</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<div class="row">
+				<div class="col-sm-4 center category-box">
+					<div class="row">
+						<a href="category?category=Products" class="highlight3">
+							<span class="category-text">Products</span>
+						</a>
+					</div>
+				</div>
+				<div class="col-sm-8">
+					<div class="row">
+						<div class="container">
+							<ul
+								class="Products-elements"
+								id="Products-elements"
+								class="cs-hidden"
+							>
+								{% for item in productItems%}
+								<li class="item-a">
+									<div class="box">
+										<img src="{{item.ImageURL}}" class="model" />
+										<a href="{{item.ProductURL}}">
+											<div class="details">
+												<p>{{item.Name}}</p>
+											</div>
+										</a>
+									</div>
+								</li>
+								{%endfor%}
+								<li class="item-a">
+									<div class="box">
+										<i
+											class="fas fa-arrow-circle-right btn-view-more vertical-center"
+										></i>
+										<a href="category?category=Products">
+											<div class="details">
+												<p>View More</p>
+											</div>
+										</a>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<div class="row">
+				<div class="col-sm-8">
+					<div class="row">
+						<div class="container">
+							<ul class="Other-elements" id="Other-elements" class="cs-hidden">
+								{% for item in otherItems%}
+								<li class="item-a">
+									<div class="box">
+										<img src="{{item.ImageURL}}" class="model" />
+										<a href="{{item.ProductURL}}">
+											<div class="details">
+												<p>{{item.Name}}</p>
+											</div>
+										</a>
+									</div>
+								</li>
+								{%endfor%}
+								<li class="item-a">
+									<div class="box">
+										<i
+											class="fas fa-arrow-circle-right btn-view-more vertical-center"
+										></i>
+										<a href="category?category=Others">
+											<div class="details">
+												<p>View More</p>
+											</div>
+										</a>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4 center category-box">
+					<div class="row">
+						<a href="category?category=Other" class="highlight3">
+							<span class="category-text">Other</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		{% include 'Website/templates.html'%} {% include 'Website/footer.html'%}
+	</body>
+	<!-- Custom JS -->
+	<script
+		type="text/javascript"
+		src="{% static 'Website/js/index.js' %}"
+	></script>
+	<script>
+		initialize();
+	</script>
+</html>
