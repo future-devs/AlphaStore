@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<!--
+This is a repository under Future Devs. An open-source organization on Github.
+The website's backend is hosted on heroku. Uses python over gunicorn server environment with Django.    
+Database management resource tool is made using HTML, CSS and Javascript, along with bootstrap and axios framework. 
+-->
+<html>
+	<head>
+		{% include 'Website/base.html'%}
+
+		<!-- Custom CSS -->
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="{% static 'Website/css/tag.css' %}"
+		/>
+	</head>
+	<body>
+		{% include 'Website/bodyDefault.html'%}
+		<div id="header-section">{% include 'Website/header.html'%}</div>
+
+		<section id="section-heading">
+			<div class="row center">
+				<h1>Search Results: {{searchTag}}</h1>
+			</div>
+		</section>
+
+		<section id="product-display">
+			{%if numOfItems == 0 %}
+			<div class="row center">
+				<div class="col-sm-12 center error"><h1>No Results Available</h1></div>
+			</div>
+			{%else%}
+			<div class="row center">
+				{% for item in items %}
+				<div class="col-sm-3">
+					<div class="box product-box">
+						<img src="{{item.ImageURL}}" class="model" />
+						<a href="{{item.ProductURL}}">
+							<div class="details">
+								<p>{{item.Name}}</p>
+							</div>
+						</a>
+					</div>
+				</div>
+				{%endfor%}
+			</div>
+			{%endif%}
+		</section>
+
+		<section id="slider" class="">
+			<div class="row center" id="slider-heading">Also look at</div>
+			<div class="row">
+				<div class="container">
+					<ul class="slider-elements" id="slider-elements" class="cs-hidden">
+						{%for item in sliderItems%}
+						<li class="item-a">
+							<div class="box">
+								<p class="category">{{item.Category}}</p>
+								<img src="{{item.ImageURL}}" class="model" />
+								<a href="{{item.ProductURL}}">
+									<div class="details">
+										<p>{{item.Name}}</p>
+									</div>
+								</a>
+							</div>
+						</li>
+						{%endfor%}
+					</ul>
+				</div>
+			</div>
+		</section>
+		{% include 'Website/templates.html'%} {% include 'Website/footer.html'%}
+	</body>
+	<!-- Custom JS -->
+	<script
+		type="text/javascript"
+		src="{% static 'Website/js/tag.js' %}"
+	></script>
+	<script>
+		initialize();
+	</script>
+</html>
