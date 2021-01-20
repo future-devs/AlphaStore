@@ -1,0 +1,114 @@
+{% if found %}
+<div class="row section-heading">Account Details</div>
+<div class="row section-row">
+	<div class="col-sm-4">Email:</div>
+	<div class="col-sm-8">{{userData.Useremail}}</div>
+</div>
+<div class="row section-row">
+	<div class="col-sm-4">Name:</div>
+	<div class="col-sm-8">
+		<input
+			type="text"
+			class="form-control"
+			value="{{userData.Username}}"
+			id="new-username"
+		/>
+	</div>
+</div>
+<div class="row center error" id="account-change-error"></div>
+<div class="row section-row center">
+	<button class="btn btn-primary" onclick="saveAccountChanges()">
+		Save Changes
+	</button>
+</div>
+<hr />
+
+<div class="row section-row">
+	<div class="col-sm-4">New Password:</div>
+	<div class="col-sm-8">
+		<input type="password" class="form-control" id="new-password" />
+	</div>
+</div>
+<div class="row section-row">
+	<div class="col-sm-4">Retype New Password:</div>
+	<div class="col-sm-8">
+		<input type="password" class="form-control" id="retype-new-password" />
+	</div>
+</div>
+<div class="row center error" id="password-change-error"></div>
+<div class="row section-row center">
+	<button class="btn btn-primary" onclick="changePassword()">
+		Change Password
+	</button>
+</div>
+<hr />
+<div class="row section-heading">Order Details</div>
+{%if userData.Orders%} {% for order in userData.Orders%}
+<div class="row section-row">
+	<div class="col-sm-12">
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="row">
+					<div class="col-sm-6 highlight1">Order ID:</div>
+					<div class="col-sm-6">#{{order.OrderID}}</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="row">
+					<div class="col-sm-6 highlight1">Date and Time:</div>
+					<div class="col-sm-6">{{order.DateTime}}</div>
+				</div>
+			</div>
+
+			<div class="col-sm-4">
+				<div class="row">
+					<div class="col-sm-6 highlight1">Total Price:</div>
+					<div class="col-sm-6">₹. {{order.TotalPrice}}</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-8">
+				<div class="row">
+					<div class="col-sm-12 highlight1">Products:</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						{% for item in order.Products%}
+
+						<li>
+							<div class="row">
+								<div class="col-sm-10">{{item.Name}}</div>
+								<div class="col-sm-2 highlight1">x {{item.Quantity}}</div>
+							</div>
+						</li>
+						{%endfor%}
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="row center vertical-center">
+					<button
+						class="btn btn-primary"
+						onclick="cancelOrder('{{order.OrderID}}')"
+					>
+						Cancel Order
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<hr class="back1" />
+{%endfor%} {%else%}
+<div class="row">
+	<div class="col-sm-12 center error pt-5 pb-5">No orders placed yet.</div>
+</div>
+{%endif%} {%else %}
+<div class="row">
+	<div class="col-sm-12 center error pt-5 pb-5">
+		Please login into your account to access you account details.
+	</div>
+</div>
+{% endif %}

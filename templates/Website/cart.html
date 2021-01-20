@@ -1,0 +1,89 @@
+{% if not cartEmpty %} {% for product in products %}
+<div class="row modal-row">
+	<div class="col-sm-6 highlight2">{{product.Name}}</div>
+	<div class="col-sm-2 highlight3">₹. {{product.Price}}</div>
+	<div class="col-sm-1 center">
+		<button
+			class="btn btn-circle btn-light"
+			onclick="cartChange('{{product.ProductID}}','dec')"
+		>
+			<i class="fas fa-minus-circle"></i>
+		</button>
+	</div>
+	<div class="col-sm-2 center">
+		<input
+			type="text"
+			class="productQuantity form-control"
+			value="{{product.Quantity}}"
+			readonly
+		/>
+	</div>
+	<div class="col-sm-1 center">
+		<button
+			class="btn btn-circle btn-light"
+			onclick="cartChange('{{product.ProductID}}','inc')"
+		>
+			<i class="fas fa-plus-circle"></i>
+		</button>
+	</div>
+</div>
+
+{%endfor%}
+<div class="row modal-row">
+	<div class="col-sm-10">Total:</div>
+	<div class="col-sm-2 highlight3">₹. {{totalPrice}}</div>
+</div>
+<hr />
+<div class="row modal-row">
+	<h4>Shipping Details:</h4>
+</div>
+<div class="row modal-row">
+	<div class="col-sm-4">Name:</div>
+	<div class="col-sm-8">
+		<input type="text" id="shipping-name" class="form-control" required />
+	</div>
+</div>
+<div class="row modal-row">
+	<div class="col-sm-4">Address:</div>
+	<div class="col-sm-8">
+		<input type="text" id="shipping-address" class="form-control" required />
+	</div>
+</div>
+<div class="row modal-row">
+	<div class="col-sm-4">Landmark:</div>
+	<div class="col-sm-8">
+		<input type="text" id="shipping-landmark" class="form-control" required />
+	</div>
+</div>
+<div class="row modal-row">
+	<div class="col-sm-4">Pin Code:</div>
+	<div class="col-sm-8">
+		<input type="number" id="shipping-pincode" class="form-control" required />
+	</div>
+</div>
+<div class="row modal-row">
+	<div class="col-sm-4">Phone Number:</div>
+	<div class="col-sm-8">
+		<input
+			type="number"
+			id="shipping-phone-number"
+			class="form-control"
+			required
+		/>
+	</div>
+</div>
+
+<div class="row modal-row">
+	<div class="error col-sm-12" id="shipping-error"></div>
+</div>
+
+<div class="row modal-row float-right">
+	<button class="btn btn-primary" id="place-order" onclick="placeOrder()">
+		Place Order
+	</button>
+</div>
+{%else%}
+<div class="row">
+	<div class="col-sm-12 center error">Cart Empty</div>
+</div>
+{%endif%}

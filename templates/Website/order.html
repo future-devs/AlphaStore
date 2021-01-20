@@ -1,0 +1,53 @@
+<div class="highlight3">
+	<div class="row modal-row highlight2">
+		Order for the following items was placed at {{DateTime}}
+	</div>
+	<div class="row modal-row">Order ID: {{OrderID}}</div>
+	<div class="row modal-row highlight2"><h4>Products:</h4></div>
+	<div class="row modal-row highlight2">
+		<div class="col-sm-8">Name</div>
+		<div class="col-sm-2">Price</div>
+		<div class="col-sm-2">Quantity</div>
+	</div>
+	{%for item in Products%}
+	<div class="row modal-row">
+		<div class="col-sm-8">{{item.Name}}</div>
+		<div class="col-sm-2 highlight3">₹. {{item.Price}}</div>
+		<div class="col-sm-2">x {{item.Quantity}}</div>
+	</div>
+	{%endfor%}
+
+	<div class="row modal-row">
+		<div class="col-sm-6"></div>
+		<div class="col-sm-3 highlight3">Grand Total</div>
+		<div class="col-sm-3 highlight2">₹. {{TotalPrice}}</div>
+	</div>
+
+	<div class="row modal-row highlight2">
+		<h4>Shipping Details:</h4>
+	</div>
+	<div class="row modal-row">
+		<div class="col-sm-4 highlight2">Name:</div>
+		<div class="col-sm-8">{{ShippingDetails.Name}}</div>
+	</div>
+
+	<div class="row modal-row">
+		<div class="col-sm-4 highlight2">Address:</div>
+		<div class="col-sm-8">{{ShippingDetails.Address}}</div>
+	</div>
+
+	<div class="row modal-row">
+		<div class="col-sm-4 highlight2">Landmark:</div>
+		<div class="col-sm-8">{{ShippingDetails.Landmark}}</div>
+	</div>
+
+	<div class="row modal-row">
+		<div class="col-sm-4 highlight2">Pincode:</div>
+		<div class="col-sm-8">{{ShippingDetails.Pincode}}</div>
+	</div>
+
+	<div class="row modal-row">
+		<div class="col-sm-4 highlight2">Phone Number:</div>
+		<div class="col-sm-8">{{ShippingDetails.PhoneNumber}}</div>
+	</div>
+</div>
