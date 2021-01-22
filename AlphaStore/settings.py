@@ -125,5 +125,4 @@ VENV_PATH = os.path.dirname(BASE_DIR)
 STATIC_ROOT = os.path.join(VENV_PATH, 'AlphaStore/static_root')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
 django_heroku.settings(locals())
