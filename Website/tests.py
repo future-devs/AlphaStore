@@ -5,8 +5,6 @@ import random
 # Create your tests here.
 
 class WebsiteTestCase(TestCase):
-    def test_website(self):
-        self.assertEqual(views.websiteTest('request').status_code, 200)
     
     def test_get_random_products(self):
         count = 1

@@ -35,11 +35,6 @@ class ProductsTestCase(TestCase):
         self.assertEqual(response_content['result']['Address'], 'Mumbai')
         self.assertEqual(response_content['result']['Email'], 'alphastore@gmail.com')
     
-    def test_warehouse_home(self):
-        self.assertEqual(views.warehouseHome('request').status_code, 200)
-    
-    def test_warehouse_test(self):
-        self.assertEqual(views.warehouseTest('request').status_code, 200)
 
     
 
