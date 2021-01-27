@@ -1,5 +1,5 @@
-// var api_url = 'http://127.0.0.1:8000/';
-var api_url = 'https://alpha-store-asd.herokuapp.com/';
+var api_url = 'http://127.0.0.1:8000/';
+// var api_url = 'https://alpha-store-asd.herokuapp.com/';
 function makeAsyncGetRequest(path) {
 	return new Promise(function (resolve, reject) {
 		axios.get(api_url + path).then(
